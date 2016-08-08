@@ -33,7 +33,19 @@ function cipher4(str) {
   return output;
 }
 
-cipher4(sentence);
+var finalResult = cipher4(sentence);
+
+function cipher5() {
+  var output = finalResult.split("").reverse().join("");
+  console.log(output);
+  return output;
+}
 
 
-//capFL(sentence);
+$(".text-reg").click(function() {
+    alert(sentence);
+});
+
+$(".text-cipher").click(function() {
+  alert(cipher5());
+});
