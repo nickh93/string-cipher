@@ -15,11 +15,8 @@ var cipher2 = function(str) {
   return output;
 }
 
-
-var sentence = prompt("enter a sentence");
-
-var cipher3 = function() {
-  var output = sentence + cipher2(cipher1(sentence));
+var cipher3 = function(currentSentence) {
+  var output = currentSentence + cipher2(cipher1(currentSentence));
   console.log(output);
   return output;
 }
@@ -28,24 +25,24 @@ function cipher4(str) {
   var indexHalf = str.length / 2;
   var finalNumber = Math.floor(indexHalf);
   var appendedLetter = str.charAt(finalNumber);
-  var output = appendedLetter + cipher3();
+  var output = appendedLetter + cipher3(str);
   console.log(output);
   return output;
 }
 
+var sentence = prompt("enter a sentence");
 var finalResult = cipher4(sentence);
 
-function cipher5() {
-  var output = finalResult.split("").reverse().join("");
+function cipher5(str) {
+  var output = str.split("").reverse().join("");
   console.log(output);
   return output;
 }
-
 
 $(".text-reg").click(function() {
     alert(sentence);
 });
 
 $(".text-cipher").click(function() {
-  alert(cipher5());
+  alert(cipher5(cipher4(sentence)));
 });
